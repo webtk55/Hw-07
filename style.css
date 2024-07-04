@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main-div{
+    background-color:#C0C0C0;
+}
+#image_effect .container{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+#image_effect .container span{
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    color: #FF6F61;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+#image_effect .container span::before{
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 0;
+    top: 0; 
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: -1;
+    animation: animete_1 2s linear infinite;
+}
+#image_effect .container span::after{
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: -1;
+    animation: animete_2 2s linear infinite;
+}
+@keyframes animete_1 {
+    0%{
+        transform: scale(1);
+        opacity: 0;
+    }
+    30%{
+        opacity: 0.5;
+    }
+    100%{
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+@keyframes animete_2 {
+    0%{
+        transform: scale(1);
+        opacity: 0;
+    }
+    30%{
+        opacity: 0.5;
+    }
+    100%{
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+#image_effect .test{
+    position: relative;
+}
+#image_effect .test::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(214, 238, 214, 0.21);
+  }
+#image_effect .test::before{
+    content: '';
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 51%;
+    bottom: 50%;
+    background-color: rgba(214, 238, 214, 0.21);
+    animation: test 900ms linear;
+  }
+#image_effect .test:hover::after{
+    left: 0%;
+    right: 0%;
+    opacity: 0;
+    transition: 900ms linear;
+}
+#image_effect .test:hover::before{
+    top: 0%;
+    bottom: 0%;
+    opacity: 0;
+    transition: 900ms linear;
+}
+
+
+#btn .container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#btn .container button{
+    padding: 15px 40px;
+    border: none;
+    background-color: #FF6F61;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#btn .container button::before{
+    content: attr(data_text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mask: url('https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png');
+    mask-size: 3000% 100%;
+    animation: btn_2 0.7s backwards steps(29);
+    border-radius: 10px;
+}
+#btn .container button:hover::before{
+    animation: btn_1 0.7s forwards steps(29);
+}
+@keyframes btn_1 {
+    0%{
+        mask-position: 0 0;
+    }
+    100%{
+        mask-position: 100% 0;
+    }
+}
+@keyframes btn_2 {
+    0%{
+        mask-position: 100% 0;
+    }
+    100%{
+        mask-position: 0 0;
+    }
+}
